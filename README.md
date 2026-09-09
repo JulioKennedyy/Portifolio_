@@ -53,6 +53,26 @@ Também desenvolvo projetos acadêmicos e pessoais para praticar diferentes tecn
 
 ## Projetos destacados
 
+Os cards da seção de projetos são gerados a partir da lista `projects` em `script.js`. Para adicionar um novo projeto, inclua um novo objeto nessa lista e informe `title`, `category`, `imageClass`, `label`, `description`, `detail`, `technologies` e `link`. Os campos `image` e `imageAlt` são opcionais para projetos sem imagem, e `featured: true` aplica o destaque visual.
+
+Exemplo:
+
+```js
+{
+	title: 'Nome do projeto',
+	category: 'Pessoal',
+	imageClass: 'project-image-lab',
+	image: 'image/nova-imagem.png',
+	imageAlt: 'Descrição da imagem',
+	label: 'PROJETO',
+	description: 'Resumo curto do projeto.',
+	detail: 'Detalhes sobre funcionalidades e decisões técnicas.',
+	technologies: 'React · Node.js · PostgreSQL',
+	link: 'https://github.com/usuario/projeto',
+	linkLabel: 'Ver projeto ↗',
+}
+```
+
 ### System-PITE
 
 [Repositório no GitHub](https://github.com/MiguelSouza0/System-PITE)
