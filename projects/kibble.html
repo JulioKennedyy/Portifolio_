@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Estudo de caso do Kibble, estimador privado de tokens, custos e janela de contexto para modelos de IA.">
+  <meta name="theme-color" content="#080b0d">
+  <title>Kibble — Estudo de caso de Júlio Kennedy</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../case-study.css">
+</head>
+<body>
+  <div class="case-shell">
+    <header class="case-header">
+      <a class="brand" href="../index.html" aria-label="Voltar ao portfólio"><span class="brand-symbol">&lt;/&gt;</span><span class="brand-name">Júlio Kennedy</span></a>
+      <nav class="case-nav" aria-label="Navegação do projeto"><a href="../index.html#projetos">Portfólio</a><a href="https://kibble-jk-web.onrender.com/" target="_blank" rel="noopener noreferrer">Abrir app ↗</a><a href="https://github.com/JulioKennedyy/Kibble" target="_blank" rel="noopener noreferrer">Código ↗</a></nav>
+    </header>
+
+    <main class="case-main">
+      <section class="case-hero">
+        <div><p class="case-eyebrow">Produto próprio · Full Stack · 2026</p><h1>Kibble</h1><p class="case-lede">Uma ferramenta para estimar tokens, custos e uso da janela de contexto antes de enviar um prompt para um modelo de IA.</p></div>
+        <div class="case-summary"><p>Concebi e desenvolvi o produto de ponta a ponta, da experiência reativa no navegador à API de estimativa, com privacidade como restrição central.</p><div class="case-actions"><a href="https://kibble-jk-web.onrender.com/" target="_blank" rel="noopener noreferrer">Usar Kibble ↗</a><a href="https://github.com/JulioKennedyy/Kibble" target="_blank" rel="noopener noreferrer">Ver código ↗</a></div></div>
+      </section>
+
+      <figure class="case-cover"><img src="../image/kibble-interface.png" alt="Tela do Kibble exibindo campos de prompt, contagem de tokens, uso de contexto e custo estimado"><figcaption class="case-caption"><span>Interface em produção</span><span>React + FastAPI</span></figcaption></figure>
+
+      <section class="case-facts" aria-label="Resumo do projeto">
+        <div class="case-fact"><span>Papel</span><strong>Produto e desenvolvimento full stack</strong></div>
+        <div class="case-fact"><span>Stack</span><strong>React, Vite, FastAPI, Python e tiktoken</strong></div>
+        <div class="case-fact"><span>Status</span><strong>Em produção e código aberto</strong></div>
+      </section>
+
+      <section class="case-section"><span class="case-index">01</span><h2>Problema</h2><div class="case-section-body"><p>Ao construir prompts e assistentes, é difícil prever quanto uma requisição vai custar, quanto contexto ainda está disponível e como o histórico afeta o consumo. Testar diretamente nas APIs adiciona custo, latência e exposição desnecessária de rascunhos.</p></div></section>
+
+      <section class="case-section"><span class="case-index">02</span><h2>Solução</h2><div class="case-section-body"><p>O Kibble decompõe a requisição em instrução do sistema, histórico, prompt e resposta prevista. A interface atualiza as estimativas em tempo real e permite comparar modelos sem exigir conta ou chave de API.</p><ul class="case-list"><li><strong>Privacidade por design.</strong> O texto não é encaminhado para OpenAI, Google ou Anthropic e não existe banco de dados, conta ou telemetria.</li><li><strong>Comparação prática.</strong> Custos de entrada e saída, janela de contexto e orçamento aparecem no mesmo fluxo.</li><li><strong>Transparência.</strong> O produto diferencia contagem nativa para modelos OpenAI de estimativas aproximadas para outros tokenizadores.</li></ul></div></section>
+
+      <section class="case-section"><span class="case-index">03</span><h2>Arquitetura</h2><div class="case-section-body"><p>A separação entre interface e serviço de estimativa mantém o frontend responsivo e concentra regras, validações e catálogo de modelos na API.</p><div class="architecture-flow" aria-label="Fluxo da arquitetura do Kibble"><div class="architecture-node"><span>01 / Entrada</span><strong>Navegador</strong></div><div class="architecture-node"><span>02 / Interface</span><strong>React + Vite</strong></div><div class="architecture-node"><span>03 / API</span><strong>FastAPI + Pydantic</strong></div><div class="architecture-node"><span>04 / Cálculo</span><strong>tiktoken + catálogo</strong></div></div></div></section>
+
+      <section class="case-section"><span class="case-index">04</span><h2>Decisões técnicas</h2><div class="case-section-body"><ul class="case-list"><li><strong>Debounce na interface</strong> para atualizar estimativas enquanto o usuário digita sem criar uma sequência excessiva de requisições.</li><li><strong>Validação e limites na API</strong> para tamanho do corpo, volume total de texto e frequência por IP.</li><li><strong>Catálogo versionado</strong> para manter preços, contexto e estratégia de tokenização explícitos.</li><li><strong>Mascote orientada a estado</strong> para comunicar processamento, alerta, pausa e sucesso sem competir com os dados.</li></ul></div></section>
+
+      <section class="case-section"><span class="case-index">05</span><h2>Qualidade e entrega</h2><div class="case-section-body"><p>O repositório combina testes de API, validação matemática de preços e limites, testes de componentes React e verificação de build. A integração contínua executa essa suíte a cada push e pull request.</p><ul class="case-list"><li>36 testes unitários documentados para o backend.</li><li>66 asserções documentadas para cálculos e limites.</li><li>Deploy declarativo no Render com health check e configuração cruzada de CORS.</li></ul></div></section>
+
+      <section class="case-cta"><h2>Teste com seu próprio prompt.</h2><a href="https://kibble-jk-web.onrender.com/" target="_blank" rel="noopener noreferrer">Abrir aplicação ↗</a></section>
+      <footer class="case-footer"><span>© Júlio Kennedy</span><a href="../index.html#projetos">Voltar aos projetos ↑</a></footer>
+    </main>
+  </div>
+</body>
+</html>
