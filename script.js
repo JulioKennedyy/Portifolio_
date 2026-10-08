@@ -4,6 +4,22 @@ const projectsGrid = document.querySelector('#projects-grid');
 
 const projects = [
   {
+    title: 'Kibble',
+    category: 'Pessoal',
+    imageClass: 'project-image-kibble',
+    image: 'image/kibble.png',
+    imageAlt: 'Mascote roxa do projeto Kibble segurando um token',
+    label: 'KIBBLE',
+    description: 'Estimador de tokens, custos e janela de contexto para prompts de IA.',
+    detail: 'Analisa instruções, histórico e prompts em tempo real, compara modelos de diferentes provedores e preserva a privacidade sem enviar o conteúdo para APIs externas.',
+    technologies: 'React · Vite · FastAPI · Python',
+    link: 'https://kibble-jk-web.onrender.com/',
+    linkLabel: 'Abrir app ↗',
+    secondaryLink: 'https://github.com/JulioKennedyy/Kibble',
+    secondaryLinkLabel: 'Código ↗',
+    featured: true,
+  },
+  {
     title: 'System-PITE',
     category: 'Colaborativo',
     imageClass: 'project-image-pite',
@@ -15,7 +31,6 @@ const projects = [
     technologies: 'Laravel · PHP · PostgreSQL · Docker',
     link: 'https://github.com/MiguelSouza0/System-PITE',
     linkLabel: 'Ver projeto ↗',
-    featured: true,
   },
   {
     title: 'Slepy',
@@ -61,7 +76,13 @@ projectsGrid.innerHTML = projects.map((project, index) => `
     </div>
     <div class="project-top"><span>${String(index + 1).padStart(2, '0')} / ${project.category}</span><span class="project-arrow">↗</span></div>
     <div><h3>${project.title}</h3><p>${project.description}</p><p class="project-detail">${project.detail}</p></div>
-    <div class="project-bottom"><span>${project.technologies}</span>${project.link ? `<a href="${project.link}" target="_blank" rel="noreferrer">${project.linkLabel}</a>` : `<span>${project.linkLabel}</span>`}</div>
+    <div class="project-bottom">
+      <span>${project.technologies}</span>
+      <span class="project-links">
+        ${project.link ? `<a href="${project.link}" target="_blank" rel="noopener noreferrer">${project.linkLabel}</a>` : `<span>${project.linkLabel}</span>`}
+        ${project.secondaryLink ? `<a href="${project.secondaryLink}" target="_blank" rel="noopener noreferrer">${project.secondaryLinkLabel}</a>` : ''}
+      </span>
+    </div>
   </article>
 `).join('');
 
